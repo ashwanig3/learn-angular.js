@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='todoApp'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script type="text/javascript" src="./todo.js"></script>
+    <style>
+        input[type=checkbox]:checked + span.strikethrough{
+            text-decoration: line-through;
+            }
+    </style>
+</head>
+<body ng-controller='todo'>
+    <h1>My Todo List</h1>
+    <form ng-submit='addTodo()'>
+        <input type="text" required="required" placeholder="Add here..." ng-model="todoInput">
+        <input type="submit" value="Add" >
+    </form>
+    <div ng-repeat="todo in todoList">
+        <input type="checkbox" ng-model="todo.done" ><span class="strikethrough">{{ todo.todo }}</span><button ng-value="{{$index}}" ng-click="deleteTodo($index)">Delete</button>
+    </div>
+    <button ng-model='isTodo'>Delete All Todo</button>
+</body>
+</html>
