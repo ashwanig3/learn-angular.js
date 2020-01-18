@@ -22,6 +22,5 @@
     <div ng-repeat="todo in todoList">
         <input type="checkbox" ng-model="todo.done" ><span class="strikethrough">{{ todo.todo }}</span><button ng-value="{{$index}}" ng-click="deleteTodo($index)">Delete</button>
     </div>
-    <button ng-model='isTodo'>Delete All Todo</button>
 </body>
 </html>
